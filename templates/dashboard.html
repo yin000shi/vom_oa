@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block style %}
+    <style>
+        h1 {
+            margin-top: 30%;
+            text-align: center;
+        }
+    </style>
+{% endblock %}
+
+
+
+{% block home_select %}
+layui-this
+{% endblock %}
+
+{% block title %}
+Dashboard
+{% endblock %}
+
+{% block content %}
+    <div class="layui-container">
+        <div class="layui-row">
+            <div class="layui-col-md-offset4">
+                <h1>你好，{{ request.user.name }}。欢迎来到VOM_OA系统。</h1>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+

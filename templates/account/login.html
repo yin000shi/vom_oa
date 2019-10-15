@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登陆</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="/static/css/layui.css">
+    <script type="text/javascript" src="/static/layui.all.js"></script>
+    <script type="text/javascript" src="/static/jquery-3.4.1/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="/static/layer-v3.1.1/layer/layer.js"></script>
+
+
+    <style>
+
+        .window{
+
+            width: 400px;
+
+            position: absolute;
+
+            margin-left: -200px;
+
+            margin-top: -80px;
+
+            top: 30%;
+
+            left: 50%;
+
+            display: block;
+
+            z-index: 2000;
+
+            background: #fff;
+
+            padding: 20 0;
+
+        }
+
+        #head{
+            text-align: center;
+            margin-top: 10%;
+            padding-left: 30px;
+        }
+
+        a{
+            color: #FFFFFF;
+        }
+
+
+
+    </style>
+
+<body style="background: #f1f1f1;">
+
+
+    <div class="window">
+
+        <form  class="layui-form" method="post">
+            <div class="layui-form-item" style="margin-right: 100px;margin-top: 20px;">
+                <label class="layui-form-label">用户名：</label>
+                <div class="layui-input-block">
+                    <input type="text" name="username" required  lay-verify="required" placeholder="请输入用户名" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+
+            <div class="layui-form-item" >
+                <label class="layui-form-label">密&nbsp;&nbsp;&nbsp;&nbsp;码：</label>
+                <div class="layui-input-inline">
+                    <input type="password" name="password" required lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input">
+                </div>
+             </div>
+
+            <div class="layui-form-item">
+                <div style="text-align: center">
+                    <input type="submit" class="layui-btn"  value="登&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;录"/>
+                    <button class="layui-btn" type="button" id="register">注&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;册</button>
+                </div>
+            </div>
+
+            {% csrf_token %}
+        </form>
+    </div>
+
+
+
+
+
+
+
+
+
+{#    <div class="layui-container">#}
+{#        <div  id="head" class="layui-row layui-col-md-offset4">#}
+{#            <div class="layui-col-md5">#}
+{#                <h3>欢迎来到VOM OA系统，请登陆</h3>#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+
+{#    <div>#}
+{#        <form action="" method="post">#}
+{#            <div>#}
+{#                <input name="username" class="form-control" placeholder="用户名或手机号" value="{{ login_form.username.value }}">  <!--type="email"前端控制email输入验证-->#}
+{#                <span class="glyphicon glyphicon-envelope form-control-feedback"></span>#}
+{#            </div>#}
+{##}
+{#            <div>#}
+{#                <input name="password" type="password" class="form-control" placeholder="密码" value="{{ login_form.password.value }}">#}
+{#                <span class="glyphicon glyphicon-lock form-control-feedback"></span>#}
+{#            </div>#}
+{##}
+{#            <div>#}
+{#                <button type="submit" class="btn btn-primary btn-block btn-flat">登录</button>#}
+{#            </div>#}
+{#            {% csrf_token %}#}
+{#        </form>#}
+{#    </div>#}
+
+    {% if msg %}
+        <h3><p>{{ msg }}</p></h3>
+    {% endif %}
+
+    <script>
+         layui.use('layer', function(){
+          var layer = layui.layer;
+          var $ = layui.$
+          $(document).on('click','#register',function(){
+                layer.open({
+                type: 2,
+                title: '注册',
+                shadeClose: false,
+                maxmin: true,
+                area: ['900px', '500px'],
+                content:'{% url 'account:register' %}'
+              });
+           });
+        });
+    </script>
+
+</body>
+</html>
+
+
+
+
+
+

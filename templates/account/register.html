@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <title>注册</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="/static/css/layui.css">
+    <script type="text/javascript" src="/static/layui.all.js"></script>
+    <script type="text/javascript" src="/static/jquery-3.4.1/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="/static/layer-v3.1.1/layer/layer.js"></script>
+
+
+
+</head>
+
+<body>
+    <form class="layui-form" action="." method="post">
+        {% csrf_token %}
+        <div class="layui-form-item">
+            <label class="layui-form-label">用户名：</label>
+            <div class="layui-input-inline">
+                <input type="text" name="username" required  lay-verify="required" placeholder="请输入用户名" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">密码：</label>
+            <div class="layui-input-inline">
+                <input type="text" name="password" required  lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">密码：</label>
+            <div class="layui-input-inline">
+                <input type="text" name="password2" required  lay-verify="required" placeholder="请再次输入密码" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">姓名：</label>
+            <div class="layui-input-inline">
+                <input type="text" name="name" required  lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">手机：</label>
+            <div class="layui-input-inline">
+                <input type="text" name="mobile" required  lay-verify="required" placeholder="请输入手机号码" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">公司邮箱：</label>
+            <div class="layui-input-inline">
+                <input type="text" name="email" required  lay-verify="required" placeholder="请输入公司邮箱" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">城市：</label>
+            <div class="layui-input-inline">
+                <select name="city">
+                    <option value=""></option>
+                    <option value="总部">总部</option>
+                    <option value="上海">上海</option>
+                    <option value="广州">广州</option>
+                    <option value="深圳">深圳</option>
+                    <option value="北京">北京</option>
+                    <option value="杭州">杭州</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
+                <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+            </div>
+        </div>
+    </form>
+
+<script>
+layui.use('form', function(){
+  var form = layui.form;
+  var $=layui.jquery;
+
+
+    form.on('submit(formDemo)', function(data){
+            data = data.field;
+            $.ajax({
+                type: $(".layui-form").attr('method'),
+                url: "{% url 'account:register' %}",
+                data: data,
+                cache: false,
+                dataType:"json",
+                success: function (msg) {
+                    if (msg.result) {
+                        layer.alert('注册成功！', {icon: 1}, function (index) {
+                            parent.layer.closeAll(); //关闭所有弹窗
+                            window.parent.location.reload();
+                        });
+                    } else {
+                        layer.alert('注册失败', {icon: 5});
+                        //$('errorMessage').html(msg.message)
+                    }
+                    return;
+                }
+            });
+            return false;
+    });
+    form.render();
+
+});
+</script>
+
+
+
+</body>
+</html>
