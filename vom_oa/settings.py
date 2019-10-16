@@ -27,7 +27,7 @@ SECRET_KEY = '!w-wj#7zi(oj_xmoovctpj=z=%7%o^!x7qbg85l02kcnmtj@wo'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['3.115.232.242']
 
 
 # Application definition
@@ -137,3 +137,5 @@ EMAIL_HOST_USER = 'nio_pilot_helper@163.com'
 EMAIL_HOST_PASSWORD = 'nogame1024'  # 请在这里填上您自己邮箱的授权码
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 EMAIL_USE_SSL = True
+
+
