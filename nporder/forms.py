@@ -5,4 +5,4 @@ from .models import Nporder
 class NporderCreateForm(forms.ModelForm):
     class Meta:
         model=Nporder
-        fields = ['order_no', 'vin', 'creator', 'city']
+        fields = ['order_no', 'vin', 'creator', 'direction','city']

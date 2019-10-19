@@ -26,9 +26,12 @@ layui-this
 <script type="text/html" id="barDemo">
   <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
   <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
-  <a class="layui-btn layui-btn-xs" lay-event="send">发送</a>
+  {% if request.user.city == '总部' %}
+    <a class="layui-btn layui-btn-xs" lay-event="send">发送</a>
+  {% endif %}
+
   {% if  not request.user.city == '总部' %}
-        <a class="layui-btn layui-btn-xs" lay-event="finish" >完成</a>
+    <a class="layui-btn layui-btn-xs" lay-event="finish" >完成</a>
   {% endif %}
 </script>
 
@@ -57,10 +60,10 @@ layui-this
           ,{field: 'id', title: 'ID', width:'5%', sort: true, fixed: 'left'}
           ,{field: 'order_no', title: '订单号', width:'16%'}
           ,{field: 'vin', title: '车架号', width:'15%', sort: true}
-          ,{field: 'city', title: '城市', width:'7%'}
+          ,{field: 'city', title: '城市', width:'6%'}
           ,{field: 'creator__username', title: '创建人', width: '7%'}
           ,{field: 'create_time', title: '创建时间', width: '15%'}
-          {#,{field: 'is_changed', title: '是否修改', width: '10%', sort: true}#}
+          ,{field: 'direction', title: '刷写方向', width: '7%'}
           ,{field: 'is_finished', title: '是否完成', width: '10%', sort: true}
           ,{fixed: 'right', width:'15%', align:'center', toolbar: '#barDemo',title:'操作'}
         ]]
@@ -156,10 +159,31 @@ layui-this
                 });
             }
             else if (layEvent === 'send'){
-                $.ajax({
-                    type:'post',
-
-                })
+                layer.alert('确定发送邮件提醒吗？', {
+                    title: '邮件提醒'
+                    , icon: 3 //0:感叹号 1：对号 2：差号 3：问号 4：小锁 5：哭脸 6：笑脸
+                    , time: 0 //不自动关闭
+                    , btn: ['YES', 'NO']
+                    , yes: function (index) {
+                        layer.close(index);
+                        $.ajax({
+                            type: "POST",
+                            url: "{% url 'nporder:send_email' %}",
+                            data: {"id": obj.data.id, csrfmiddlewaretoken: '{{ csrf_token }}'},  //防止post数据时报 csrf_token 403
+                            cache: false,
+                            success: function (msg) {
+                                if (msg.result) {
+                                    layer.alert('发送成功', {icon: 1});
+                                    window.parent.location.reload();
+                                } else {
+                                    //alert(msg.message);
+                                    layer.alert('发送失败', {icon: 2});
+                                }
+                                return;
+                            }
+                        });
+                    }
+                });
             }
 
 

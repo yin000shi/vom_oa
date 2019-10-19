@@ -2,8 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ddf4f253-1bcb-47b5-bdb1-6c10cb741c0a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nporder/migrations/0010_auto_20191019_0310.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nporder/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/nporder/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nporder/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/nporder/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nporder/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/nporder/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nporder/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/nporder/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/account/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/account/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/account/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/account/register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/nporder/order_create.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/nporder/order_create.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/nporder/order_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/nporder/order_list.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vom_oa/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/vom_oa/settings.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -107,7 +116,8 @@
       <option name="presentableId" value="Default" />
       <updated>1570114265581</updated>
       <workItem from="1570114267831" duration="26400000" />
-      <workItem from="1570453061828" duration="48996000" />
+      <workItem from="1570453061828" duration="50997000" />
+      <workItem from="1571411555596" duration="8549000" />
     </task>
     <servers />
   </component>
@@ -119,7 +129,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>

@@ -8,7 +8,7 @@ class Nporder(models.Model):
     order_no = models.CharField(max_length=20)
     vin = models.CharField(max_length=20)
     city = models.CharField(max_length=10)
-    direction = models.CharField(choices=(('add', '添加'), ('delete', '删除')), default='add', max_length=20)
+    direction = models.CharField(choices=(('添加', '添加'), ('删除', '删除')), default='add', max_length=20)
     is_changed = models.BooleanField(default=True)
     is_finished=models.BooleanField(default=False)
 

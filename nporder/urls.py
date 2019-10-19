@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.urls import path
 
-from nporder.views import NporderView, NporderListView, NporderCreateView,NporderDeleteView,NporderFinishView
+from nporder.views import NporderView, NporderListView, NporderCreateView,NporderDeleteView,NporderFinishView,SendEmailView
 
 app_name='nporder'
 
@@ -11,4 +11,5 @@ urlpatterns = [
     path('create/',NporderCreateView.as_view(),name='nporder_create'),
     path('delete/',NporderDeleteView.as_view(),name='nporder_delete'),
     path('finish/',NporderFinishView.as_view(),name='nporder_finish'),
+    path('email/',SendEmailView.as_view(),name='send_email'),
 ]

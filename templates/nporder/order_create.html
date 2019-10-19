@@ -1,3 +1,4 @@
+{% load staticfiles %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +11,7 @@
 <body>
 <form class="layui-form" action="" method="post">
     {% csrf_token %}
-
+    <input type="hidden" name="id" value="{{ order.id }}">
     <input type="hidden" name="creator" value="{{ request.user.id }}">
 
 {#  <div class="layui-form-item">#}
@@ -38,7 +39,7 @@
   <div class="layui-form-item">
     <label class="layui-form-label">城市</label>
     <div class="layui-input-inline">
-      <select name="city" lay-verify="required">
+      <select name="city" lay-verify="required" lay-search>
         <option value="{{ order.city }}"></option>
         <option value=""></option>
         <option value="北京">北京</option>
@@ -51,11 +52,18 @@
   </div>
 
   <div class="layui-form-item">
-    <label class="layui-form-label">开关</label>
-    <div class="layui-input-block">
-      <input type="checkbox" name="switch" lay-skin="switch">
+    <label class="layui-form-label">刷写方向</label>
+    <div class="layui-input-inline">
+      <select name="direction" lay-verify="required">
+        <option value="{{ order.direction }}"></option>
+        <option value=""></option>
+        <option value="添加">添加</option>
+        <option value="删除">删除</option>
+
+      </select>
     </div>
   </div>
+
 
 {#  <div class="layui-form-item layui-form-text">#}
 {#    <label class="layui-form-label">备注</label>#}
@@ -89,14 +97,12 @@ layui.use('form', function(){
                 data: data,
                 cache: false,
                 success: function (msg) {
-                    layui.console(msg)
                     if (msg.result) {
                         layer.alert('数据保存成功！', {icon: 1}, function (index) {
                             parent.layer.closeAll(); //关闭所有弹窗
                             window.parent.location.reload();
                         });
                     } else {
-                        layui.console(msg)
                         layer.alert('数据保存失败', {icon: 5});
                         //$('errorMessage').html(msg.message)
                     }
