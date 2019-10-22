@@ -18,7 +18,7 @@ layui-this
 <script type="text/html" id="toolbarDemo">
   <div class="layui-btn-container">
     <button class="layui-btn layui-btn-sm {% if not request.user.city == '总部' %}layui-btn-disabled {% endif %}" {% if not request.user.city == '总部' %}disabled="disabled" {% endif %} lay-event="add">添加</button>
-    <button class="layui-btn layui-btn-sm" lay-event="delete">删除</button>
+{#    <button class="layui-btn layui-btn-sm" lay-event="delete">删除</button>#}
 {#    <button class="layui-btn layui-btn-sm" lay-event="update">编辑</button>#}
   </div>
 </script>
@@ -61,9 +61,9 @@ layui-this
           ,{field: 'order_no', title: '订单号', width:'16%'}
           ,{field: 'vin', title: '车架号', width:'15%', sort: true}
           ,{field: 'city', title: '城市', width:'6%'}
-          ,{field: 'creator__username', title: '创建人', width: '7%'}
-          ,{field: 'create_time', title: '创建时间', width: '15%'}
-          ,{field: 'direction', title: '刷写方向', width: '7%'}
+          ,{field: 'creator__name', title: '创建人', width: '7%',sort: true}
+          ,{field: 'create_time', title: '创建时间', width: '15%',sort: true}
+          ,{field: 'direction', title: '刷写方向', width: '7%',sort: true}
           ,{field: 'is_finished', title: '是否完成', width: '10%', sort: true}
           ,{fixed: 'right', width:'15%', align:'center', toolbar: '#barDemo',title:'操作'}
         ]]
@@ -71,7 +71,8 @@ layui-this
 
         //监听头工具条
         table.on('toolbar(test)', function(obj){
-          var checkStatus = table.checkStatus(obj.config.id);
+          var checkStatus = table.checkStatus(obj.config.id)
+              ,data=checkStatus.data;
           switch(obj.event){
             case 'add':
               layer.open({
@@ -84,7 +85,12 @@ layui-this
               });
             break;
             case 'delete':
-              layer.msg('删除');
+                if (data.length === 0) {
+                    layer.msg('请选择一行');
+                } else {
+
+                    layer.msg('删除');
+                }
             break;
             case 'update':
               layer.msg('编辑');

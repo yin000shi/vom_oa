@@ -28,7 +28,7 @@ class DatetimeEncode(json.JSONEncoder):
 class NporderListView(LoginRequiredMixin, View):
 
     def get(self, request):
-        fields = ['id', 'order_no', 'vin', 'city', 'creator__username', 'create_time', 'is_changed', 'is_finished','direction']
+        fields = ['id', 'order_no', 'vin', 'city', 'creator__name', 'create_time', 'is_changed', 'is_finished','direction']
         if request.user.city == '总部':
             order_list = Nporder.objects.values(*fields)
 
