@@ -28,8 +28,9 @@ class DatetimeEncode(json.JSONEncoder):
 class NporderListView(LoginRequiredMixin, View):
 
     def get(self, request):
-        fields = ['id', 'order_no', 'vin', 'city', 'creator__name', 'create_time', 'is_changed', 'is_finished','direction']
-        if request.user.city == '总部':
+        fields = ['id', 'order_no', 'vin', 'city', 'creator__name', 'create_time', 'is_changed', 'is_finished',
+                  'direction', 'finish_time']
+        if request.user.city == 'UCS' or 'DO/VOM':
             order_list = Nporder.objects.values(*fields)
 
         else:
@@ -59,7 +60,8 @@ class NporderCreateView(LoginRequiredMixin, View):
         res = dict(result=False)
         if 'id' in request.POST and request.POST['id']:
             # order = get_object_or_404(Nporder, pk=request.POST['id'])
-            Nporder.objects.filter(id=request.POST['id']).update(order_no=request.POST['order_no'], vin=request.POST['vin'],
+            Nporder.objects.filter(id=request.POST['id']).update(order_no=request.POST['order_no'],
+                                                                 vin=request.POST['vin'],
                                                                  city=request.POST['city'],
                                                                  direction=request.POST['direction'])
             res['result'] = True
@@ -111,3 +113,34 @@ class SendEmailView(LoginRequiredMixin, View):
             send_mail(email_title, email_body, email_from, email_list)
             ret['result'] = True
         return HttpResponse(json.dumps(ret), content_type='application/json')
+
+
+class NporderEditView(LoginRequiredMixin, View):
+
+    def get(self, request):
+        ret = dict(order_all=Nporder.objects.all())
+        if 'id' in request.GET and request.GET['id']:
+            order = get_object_or_404(Nporder, pk=request.GET['id'])
+            ret['order'] = order
+        return render(request, 'nporder/order_edit.html', ret)
+
+    def post(self, request):
+        res = dict(result=False)
+        if 'id' in request.POST and request.POST['id']:
+            # order = get_object_or_404(Nporder, pk=request.POST['id'])
+            Nporder.objects.filter(id=request.POST['id']).update(order_no=request.POST['order_no'],
+                                                                 vin=request.POST['vin'],
+                                                                 city=request.POST['city'],
+                                                                 direction=request.POST['direction'],
+                                                                 model_code=request.POST['model_code'],
+                                                                 is_combined=request.POST['is_combined'],
+                                                                 material_code=request.POST['material_code'],
+                                                                 is_changed=request.POST['is_changed'])
+            res['result'] = True
+        else:
+            order = Nporder()
+            order_form = NporderCreateForm(request.POST, instance=order)
+            if order_form.is_valid():
+                order_form.save()
+                res['result'] = True
+        return HttpResponse(json.dumps(res), content_type='application/json')
