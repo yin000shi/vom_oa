@@ -21,5 +21,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/',include('account.urls',namespace='account')),
     path('nporder/',include('nporder.urls',namespace='nporder')),
+    path('point/',include('SelfDrivePoint.urls',namespace='selfdrivepoint')),
     path('',DashboardView.as_view(),name='dashboard'),
 ]

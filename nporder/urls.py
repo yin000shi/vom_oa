@@ -1,4 +1,3 @@
-from django.contrib import admin
 from django.urls import path
 
 from nporder.views import NporderView, NporderListView, NporderCreateView,NporderDeleteView,NporderFinishView,SendEmailView,NporderEditView

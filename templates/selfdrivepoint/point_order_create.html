@@ -1,0 +1,152 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>新增</title>
+  <link rel="stylesheet" href="/static/css/layui.css">
+</head>
+
+<body>
+<form class="layui-form" action="" method="post">
+    {% csrf_token %}
+{#    <input type="hidden" name="id" >#}
+    <input type="hidden" name="creator" value="{{ request.user.id }}">
+
+{#  <div class="layui-form-item">#}
+{#    <label class="layui-form-label">创建者</label>#}
+{#    <div class="layui-input-inline">#}
+{#      <input type="text" name="creator" required  lay-verify="required" placeholder="请输入姓名" autocomplete="off" class="layui-input" value="{{ order.creator }}">#}
+{#    </div>#}
+{#  </div>#}
+
+  <div class="layui-form-item">
+    <label class="layui-form-label">订单号</label>
+    <div class="layui-input-inline">
+      <input type="text" name="order_no" required  lay-verify="required" placeholder="请输入订单号" autocomplete="off" class="layui-input" value="{{ order.order_no }}">
+    </div>
+  </div>
+
+
+
+  <div class="layui-form-item">
+    <label class="layui-form-label">创建时间</label>
+    <div class="layui-input-inline">
+      <input type="text"  name="order_time" class="layui-input" id="test1" value="{{ order.order_time }}">
+    </div>
+  </div>
+
+
+
+
+  <div class="layui-form-item">
+    <label class="layui-form-label">用户电话</label>
+    <div class="layui-input-inline">
+      <input type="text" name="phone_no" required lay-verify="required" placeholder="请输入下单电话" autocomplete="off" class="layui-input" value="{{ order.phone_no }}">
+    </div>
+  </div>
+
+  <input type="hidden" name="city" value="{{ request.user.city }}">
+
+{#  <div class="layui-form-item">#}
+{#    <label class="layui-form-label">城市</label>#}
+{#    <div class="layui-input-inline">#}
+{#      <select name="city" lay-verify="required" lay-search>#}
+{#        <option value="{{ order.city }}"></option>#}
+{#        <option value=""></option>#}
+{#        <option value="北京">北京</option>#}
+{#        <option value="上海">上海</option>#}
+{#        <option value="广州">广州</option>#}
+{#        <option value="深圳">深圳</option>#}
+{#        <option value="杭州">杭州</option>#}
+{#      </select>#}
+{#    </div>#}
+{#  </div>#}
+
+  <div class="layui-form-item">
+    <label class="layui-form-label">是否安装</label>
+    <div class="layui-input-inline">
+        <select name="is_installed" lay-verify="required">
+            <option value="是">是</option>
+            <option value="否">否</option>
+        </select>
+{#      <input type="text" name="is_installed" required lay-verify="required" placeholder="是否完成隔热膜安装" autocomplete="off" class="layui-input" value="{{ order.is_installed }}">#}
+    </div>
+  </div>
+
+  <div class="layui-form-item">
+    <label class="layui-form-label">积分</label>
+    <div class="layui-input-inline">
+      <input type="text" name="point" required lay-verify="required" placeholder="请输入申请积分数量" autocomplete="off" class="layui-input" value="{{ order.point }}">
+    </div>
+  </div>
+
+
+
+
+
+{#  <div class="layui-form-item layui-form-text">#}
+{#    <label class="layui-form-label">备注</label>#}
+{#    <div class="layui-input-block">#}
+{#      <textarea name="desc" placeholder="请输入内容" class="layui-textarea"></textarea>#}
+{#    </div>#}
+{#  </div>#}
+
+  <div class="layui-form-item">
+    <div class="layui-input-block">
+      <button class="layui-btn" lay-submit lay-filter="formdemo">立即提交</button>
+      <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+    </div>
+  </div>
+</form>
+
+<script src="/static/layui.all.js"></script>
+
+<script>
+//Demo
+layui.use('form', function(){
+  var form = layui.form;
+  var $=layui.jquery;
+
+
+    form.on('submit(formdemo)', function(data){
+            data = data.field;
+            $.ajax({
+                type: $(".layui-form").attr('method'),
+                url: "{% url 'selfdrivepoint:point_create_view' %}",
+                data: data,
+                cache: false,
+                success: function (msg) {
+                    if (msg.result) {
+                        layer.alert('数据保存成功！', {icon: 1}, function (index) {
+                            parent.layer.closeAll(); //关闭所有弹窗
+                            window.parent.location.reload();
+                        });
+                    } else {
+                        layer.alert('数据保存失败', {icon: 5});
+                        //$('errorMessage').html(msg.message)
+                    }
+                    return;
+                }
+            });
+            return false;
+    });
+    form.render();
+
+});
+</script>
+
+
+<script>
+layui.use('laydate', function(){
+  var laydate = layui.laydate;
+
+  //执行一个laydate实例
+  laydate.render({
+    elem: '#test1' //指定元素
+  });
+});
+</script>
+</body>
+</html>

@@ -30,7 +30,7 @@ class NporderListView(LoginRequiredMixin, View):
     def get(self, request):
         fields = ['id', 'order_no', 'vin', 'city', 'creator__name', 'create_time', 'is_changed', 'is_finished',
                   'direction', 'finish_time']
-        if request.user.city == 'UCS' or 'DO/VOM':
+        if request.user.city == 'UCS' or request.user.city == 'DO/VOM':
             order_list = Nporder.objects.values(*fields)
 
         else:
@@ -39,7 +39,7 @@ class NporderListView(LoginRequiredMixin, View):
         ret['code'] = 0
         ret['msg'] = ''
         ret['count'] = 1000
-        # return render(request,'nporder/order_list.html')
+        # return render(request,'nporder/point_order_list.html')
         return HttpResponse(json.dumps(ret, cls=DatetimeEncode, ensure_ascii=False), content_type='application/json')
 
 
