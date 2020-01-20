@@ -2,17 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ddf4f253-1bcb-47b5-bdb1-6c10cb741c0a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vom_oa.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vom_oa.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nporder/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/nporder/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nporder/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/nporder/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/account/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/account/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/nporder/order_create.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/nporder/order_create.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/nporder/order_edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/nporder/order_edit.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/nporder/order_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/nporder/order_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vom_oa/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/vom_oa/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vom_oa/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/vom_oa/settings.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -134,7 +126,7 @@
       <workItem from="1579017249901" duration="197000" />
       <workItem from="1579017510590" duration="6000" />
       <workItem from="1579018420776" duration="806000" />
-      <workItem from="1579277229434" duration="8180000" />
+      <workItem from="1579277229434" duration="10300000" />
     </task>
     <servers />
   </component>
