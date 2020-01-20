@@ -16,7 +16,7 @@
     <li class="layui-nav-item"><a href="">VOM_OA</a></li>
     <li class="layui-nav-item {% block home_select %}{% endblock %}"><a href="{% url 'dashboard' %}">首页</a></li>
     <li class="layui-nav-item {% block pilot_select %}{% endblock %}"><a href="{% url 'nporder:nporder_view' %}">NIO Pilot</a></li>
-    <li class="layui-nav-item {% block point_select %}{% endblock %}"><a href="{% url 'selfdrivepoint:point_view' %}">自驾积分统计</a></li>
+{#    <li class="layui-nav-item {% block point_select %}{% endblock %}"><a href="{% url 'selfdrivepoint:point_view' %}">自驾积分统计</a></li>#}
     <li class="layui-nav-item {% block pilot_logout %}{% endblock %} layui-layout-right"><a href="{% url 'account:logout' %}">退出</a></li>
 
 </ul>

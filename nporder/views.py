@@ -11,6 +11,8 @@ from django.views.generic.base import View, TemplateView
 from vom_oa.mixin import LoginRequiredMixin
 from .models import Nporder, UserProfile
 from .forms import NporderCreateForm
+from celery_tasks.tasks import send_notification_email
+from django.utils import timezone
 
 import datetime
 
@@ -90,7 +92,7 @@ class NporderFinishView(LoginRequiredMixin, View):
     def post(self, request):
         ret = dict(result=False)
         if 'id' in request.POST and request.POST['id']:
-            Nporder.objects.filter(id=request.POST['id']).update(is_finished=True)
+            Nporder.objects.filter(id=request.POST['id']).update(is_finished=True,finish_time=timezone.now())
             ret['result'] = True
         return HttpResponse(json.dumps(ret), content_type='application/json')
 
@@ -110,7 +112,8 @@ class SendEmailView(LoginRequiredMixin, View):
             email_body = 'Dear 质量专员：\n 请尽快完成下列车辆的NP刷写工作：\nVIN：{} \n订单号：{}\n刷写方向：{}\n刷写后请在VOM_OA系统中点击完成确认'.format(
                 order.vin, order.order_no, order.direction)
             email_from = 'nio_pilot_helper@163.com'
-            send_mail(email_title, email_body, email_from, email_list)
+            send_notification_email.delay(email_title, email_body, email_from, email_list)
+            # send_mail(email_title, email_body, email_from, email_list)
             ret['result'] = True
         return HttpResponse(json.dumps(ret), content_type='application/json')
 

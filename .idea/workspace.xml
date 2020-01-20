@@ -2,14 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ddf4f253-1bcb-47b5-bdb1-6c10cb741c0a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/SelfDrivePoint/migrations/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vom_oa.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vom_oa.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nporder/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/nporder/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nporder/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/nporder/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/nporder/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/nporder/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/account/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/account/login.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vom_oa/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/vom_oa/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vom_oa/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/vom_oa/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/nporder/order_create.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/nporder/order_create.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/nporder/order_edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/nporder/order_edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/nporder/order_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/nporder/order_list.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -51,19 +54,19 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/selfdrivepoint" />
-    <property name="settings.editor.selected.configurable" value="configurable.group.project" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/vom_oa" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/static" />
       <recent name="$PROJECT_DIR$/templates/selfdrivepoint" />
       <recent name="$PROJECT_DIR$/templates/nporder" />
-      <recent name="$PROJECT_DIR$/static" />
       <recent name="$PROJECT_DIR$/templates" />
       <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/vom_oa" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -118,7 +121,20 @@
       <workItem from="1570453061828" duration="50997000" />
       <workItem from="1571411555596" duration="26585000" />
       <workItem from="1572446594645" duration="24000" />
-      <workItem from="1573355412622" duration="19474000" />
+      <workItem from="1573355412622" duration="19982000" />
+      <workItem from="1573735723848" duration="531000" />
+      <workItem from="1575189090734" duration="1892000" />
+      <workItem from="1575194644749" duration="13000" />
+      <workItem from="1575199748131" duration="491000" />
+      <workItem from="1575200433187" duration="12000" />
+      <workItem from="1575274930373" duration="6753000" />
+      <workItem from="1577803261016" duration="3410000" />
+      <workItem from="1578675629785" duration="137000" />
+      <workItem from="1578924413387" duration="914000" />
+      <workItem from="1579017249901" duration="197000" />
+      <workItem from="1579017510590" duration="6000" />
+      <workItem from="1579018420776" duration="806000" />
+      <workItem from="1579277229434" duration="8180000" />
     </task>
     <servers />
   </component>

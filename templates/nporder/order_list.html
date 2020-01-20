@@ -5,11 +5,15 @@ layui-this
 {% endblock %}
 
 {% block content %}
-    <table id="demo" lay-filter="test"></table>
-    <label class="layui-form-label">搜索</label>
-    <div class="layui-input-block">
-      <input type="text" name="title" required  lay-verify="required" placeholder="请输入搜索内容" autocomplete="off" class="layui-input" id="searchbox">
+    <div>
+        <label class="layui-form-label">搜索</label>
+        <div class="layui-input-block">
+            <input type="text" name="title" required  lay-verify="required" placeholder="请输入搜索内容" autocomplete="off" class="layui-input" id="searchbox">
+        </div>
     </div>
+
+    <table id="demo" lay-filter="test"></table>
+
 {% endblock %}
 
 {% block script %}
@@ -17,7 +21,7 @@ layui-this
 
 <script type="text/html" id="toolbarDemo">
   <div class="layui-btn-container">
-    <button class="layui-btn layui-btn-sm {% if not request.user.city == 'UCS' %}layui-btn-disabled {% endif %}" {% if not request.user.city == 'UCS' %}disabled="disabled" {% endif %} lay-event="add">添加</button>
+    <button class="layui-btn layui-btn-sm {% if not request.user.city == 'DO/VOM' %}layui-btn-disabled {% endif %}" {% if not request.user.city == 'DO/VOM' %}disabled="disabled" {% endif %} lay-event="add">添加</button>
 {#    <button class="layui-btn layui-btn-sm" lay-event="delete">删除</button>#}
 {#    <button class="layui-btn layui-btn-sm" lay-event="update">编辑</button>#}
   </div>
@@ -27,7 +31,7 @@ layui-this
     {% if request.user.city == 'DO/VOM' %}
         <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
     {% endif %}
-    {% if request.user.city == 'UCS' or request.user.city == 'DO/VOM' %}
+    {% if request.user.city == 'DO/VOM' %}
         <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
     {% endif %}
     {% if request.user.city == 'DO/VOM' %}
@@ -50,7 +54,7 @@ layui-this
       table.render({
         elem: '#demo'
         ,height: 500
-        ,width:1200
+        ,width:1300
         ,url: '{% url 'nporder:nporder_list' %}' //数据接口
         ,page: true //开启分页
         ,toolbar: '#toolbarDemo'
