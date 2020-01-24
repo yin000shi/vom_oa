@@ -1,33 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ddf4f253-1bcb-47b5-bdb1-6c10cb741c0a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/nporder/migrations/0006_auto_20200123_0027.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nporder/migrations/0007_nporder_internal_order_no.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/account/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/celery_tasks/tasks.py" beforeDir="false" afterPath="$PROJECT_DIR$/celery_tasks/tasks.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nporder/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/nporder/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nporder/migrations/0002_auto_20191005_0832.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nporder/migrations/0003_auto_20191005_0837.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nporder/migrations/0004_auto_20191006_0515.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nporder/migrations/0005_auto_20191007_1653.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nporder/migrations/0006_auto_20191008_1513.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nporder/migrations/0007_auto_20191008_1514.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nporder/migrations/0008_auto_20191008_1515.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nporder/migrations/0009_nporder_is_finished.py" beforeDir="false" afterPath="$PROJECT_DIR$/nporder/migrations/0005_nporder_applicant.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nporder/migrations/0010_auto_20191019_0310.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nporder/migrations/0011_auto_20191023_1454.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nporder/migrations/0012_auto_20191025_1604.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nporder/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/nporder/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nporder/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/nporder/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nporder/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/nporder/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/nporder/order_create.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/nporder/order_create.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/nporder/order_edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/nporder/order_edit.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/nporder/order_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/nporder/order_list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vom_oa/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/vom_oa/settings.py" afterDir="false" />
-    </list>
+    <list default="true" id="ddf4f253-1bcb-47b5-bdb1-6c10cb741c0a" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -149,8 +123,23 @@
       <workItem from="1579017249901" duration="197000" />
       <workItem from="1579017510590" duration="6000" />
       <workItem from="1579018420776" duration="806000" />
-      <workItem from="1579277229434" duration="25437000" />
+      <workItem from="1579277229434" duration="25706000" />
     </task>
+    <task id="LOCAL-00001" summary="version 0.2: modified according to the list offered by zhuoqin">
+      <created>1579865990694</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1579865990694</updated>
+    </task>
+    <task id="LOCAL-00002" summary="version 0.2: modified according to the list offered by zhuoqin">
+      <created>1579866017417</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1579866017417</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -168,6 +157,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="version 0.2: modified according to the list offered by zhuoqin" />
+    <option name="LAST_COMMIT_MESSAGE" value="version 0.2: modified according to the list offered by zhuoqin" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
