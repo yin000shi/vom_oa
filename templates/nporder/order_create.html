@@ -80,9 +80,25 @@
       <select name="direction" lay-verify="required">
         <option value="{{ order.direction }}"></option>
         <option value=""></option>
-        <option value="添加">添加</option>
-        <option value="删除">删除</option>
+        <option value="基础版">基础版</option>
+        <option value="增强版">增强版</option>
+        <option value="完整版">完整版</option>
+      </select>
+    </div>
+  </div>
 
+  <div class="layui-form-item">
+    <label class="layui-form-label">申请人</label>
+    <div class="layui-input-inline">
+      <select name="applicant" lay-verify="required">
+        <option value="{{ order.applicant }}">{{ order.applicant }}</option>
+        <option value="">------------------</option>
+        <option value="鲍丽君">鲍丽君</option>
+        <option value="张一鸣">张一鸣</option>
+        <option value="崔媛媛">崔媛媛</option>
+          <option value="张亚辰">张亚辰</option>
+          <option value="杜苏倩">杜苏倩</option>
+          <option value="包扬">包扬</option>
       </select>
     </div>
   </div>

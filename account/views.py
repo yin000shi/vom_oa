@@ -39,6 +39,7 @@ class LoginView(View):
                 ret['msg'] = '用户名和密码错误！'
         else:
             ret['msg'] = '用户名和密码不能为空！'
+
         return render(request, 'account/login.html', ret)
 
 
@@ -67,6 +68,7 @@ class RegisterView(View):
         if user_create_form.is_valid():
             new_user = user_create_form.save(commit=False)
             new_user.password = make_password(user_create_form.cleaned_data['password'])
+            new_user.is_active = False
             new_user.save()
             res['result'] = True
         return HttpResponse(json.dumps(res), content_type='application/json')
