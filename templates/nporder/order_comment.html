@@ -1,0 +1,78 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>填写备注</title>
+  <link rel="stylesheet" href="/static/css/layui.css">
+</head>
+
+<body>
+<form class="layui-form" action="" method="post">
+    {% csrf_token %}
+    <input type="hidden" name="id" value="{{ order.id }}">
+    <input type="hidden" name="creator" value="{{ request.user.id }}">
+
+{#  <div class="layui-form-item">#}
+{#    <label class="layui-form-label">创建者</label>#}
+{#    <div class="layui-input-inline">#}
+{#      <input type="text" name="creator" required  lay-verify="required" placeholder="请输入姓名" autocomplete="off" class="layui-input" value="{{ order.creator }}">#}
+{#    </div>#}
+{#  </div>#}
+
+
+  <div class="layui-form-item layui-form-text">
+    <label class="layui-form-label">备注: </label>
+    <div class="layui-input-block">
+      <textarea name="comment" placeholder="请输入内容" class="layui-textarea"></textarea>
+    </div>
+  </div>
+
+
+
+  <div class="layui-form-item">
+    <div class="layui-input-block">
+      <button class="layui-btn" lay-submit lay-filter="formdemo">立即提交</button>
+      <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+    </div>
+  </div>
+</form>
+
+<script src="/static/layui.all.js"></script>
+
+<script>
+//Demo
+layui.use('form', function(){
+  var form = layui.form;
+  var $=layui.jquery;
+
+
+    form.on('submit(formdemo)', function(data){
+            data = data.field;
+            $.ajax({
+                type: $(".layui-form").attr('method'),
+                url: "{% url 'nporder:add_comment' %}",
+                data: data,
+                cache: false,
+                success: function (msg) {
+                    if (msg.result) {
+                        layer.alert('数据保存成功！', {icon: 1}, function (index) {
+                            parent.layer.closeAll(); //关闭所有弹窗
+                            window.parent.location.reload();
+                        });
+                    } else {
+                        layer.alert('数据保存失败', {icon: 5});
+                        //$('errorMessage').html(msg.message)
+                    }
+                    return;
+                }
+            });
+            return false;
+    });
+    form.render();
+
+});
+</script>
+</body>
+</html>
