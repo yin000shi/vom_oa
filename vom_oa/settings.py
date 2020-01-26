@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
 import os
+from datetime import timedelta
+from celery.schedules import crontab
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 from django.urls import reverse_lazy
@@ -147,3 +149,28 @@ EMAIL_HOST_USER = 'nio_pilot_helper@163.com'
 EMAIL_HOST_PASSWORD = 'nogame1024'  # 请在这里填上您自己邮箱的授权码
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 EMAIL_USE_SSL = True
+
+# redis
+REDIS_PORT = 6379
+REDIS_DB = 8
+
+# 从环境变量中取得redis服务器地址
+REDIS_HOST = '127.0.0.1'
+
+# celery settings
+# 这两项必须设置，否则不能正常启动celery beat
+CELERY_ENABLE_UTC = True
+CELERY_TIMEZONE = TIME_ZONE
+# 任务队列配置
+CELERY_BROKER_URL = f'redis://{REDIS_HOST}:{REDIS_PORT}/{REDIS_DB}'
+CELERY_ACCEPT_CONTENT = ['application/json', ]
+CELERY_RESULT_BACKEND = f'redis://{REDIS_HOST}:{REDIS_PORT}/{REDIS_DB}'
+CELERY_TASK_SERIALIZER = 'json'
+
+# 定时任务设置
+CELERY_BEAT_SCHEDULE = {
+    'fetch_news_every-1-hour': {
+        'task': 'celery_tasks.tasks.send_daily_summary_email',
+        'schedule': crontab(minute=45, hour='*/1'),
+    }
+}
