@@ -89,30 +89,34 @@
 
     <hr class="layui-bg-green">
 
-  <div class="layui-form-item">
-    <label class="layui-form-label">车型代码</label>
-    <div class="layui-input-inline">
-      <select name="model_code" lay-verify="required">
-        <option value="{{ order.model_code }}">{{ order.model_code }}</option>
-        <option value="">------------------</option>
-        <option value="ES6002">ES6002</option>
-        <option value="ES6003">ES6003</option>
-        <option value="ES8002">ES8002</option>
-        <option value="ES8003">ES8003</option>
-        <option value="ES8004">ES8004</option>
-      </select>
-    </div>
-  </div>
+{#  <div class="layui-form-item">#}
+{#    <label class="layui-form-label">车型</label>#}
+{#    <div class="layui-input-inline">#}
+{#      <select name="model_code" lay-verify="required">#}
+{#        <option value="{{ order.model_code }}">{{ order.model_code }}</option>#}
+{#        <option value="">------------------</option>#}
+{#        <option value="ES6">ES6</option>#}
+{#        <option value="ES8">ES8</option>#}
+{#      </select>#}
+{#    </div>#}
+{#  </div>#}
+
+{#  <div class="layui-form-item">#}
+{#    <label class="layui-form-label">是否绑定内部单</label>#}
+{#    <div class="layui-input-inline">#}
+{#      <select name="is_combined" lay-verify="required">#}
+{#        <option value="{{ order.is_combined }}">{{ order.is_combined }}</option>#}
+{#        <option value="">------------------</option>#}
+{#        <option value="True">是</option>#}
+{#        <option value="False">否</option>#}
+{#      </select>#}
+{#    </div>#}
+{#  </div>#}
 
   <div class="layui-form-item">
-    <label class="layui-form-label">是否绑定内部单</label>
+    <label class="layui-form-label">内部单号</label>
     <div class="layui-input-inline">
-      <select name="is_combined" lay-verify="required">
-        <option value="{{ order.is_combined }}">{{ order.is_combined }}</option>
-        <option value="">------------------</option>
-        <option value="True">是</option>
-        <option value="False">否</option>
-      </select>
+      <input type="text" name="internal_order_no" required lay-verify="required" placeholder="请输入内部单号" autocomplete="off" class="layui-input" value="{{ order.internal_order_no }}">
     </div>
   </div>
 

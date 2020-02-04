@@ -13,7 +13,7 @@ class Nporder(models.Model):
     is_changed = models.CharField(choices=(('是', '是'), ('否', '否')), default='是', max_length=20, verbose_name='线上是否更新')
     is_finished = models.CharField(default='否', choices=(('是', '是'), ('否', '否')), max_length=20, verbose_name='是否完成')
     # =======================以下新增
-    internal_order_no=models.CharField(max_length=20,verbose_name='内部单号',null=True)
+    internal_order_no = models.CharField(max_length=20, verbose_name='内部单号', null=True,default="")
     applicant = models.CharField(max_length=20, null=True, verbose_name='申请者')
     finish_time = models.DateTimeField(null=True, blank=True, verbose_name='完成时间')
     comment = models.TextField(verbose_name='备注', null=True)
@@ -23,11 +23,11 @@ class Nporder(models.Model):
     #         ('ES6002', 'ES6002'), ('ES6003', 'ES6003'), ('ES8002', 'ES8002'), ('ES8003', 'ES8003'),
     #         ('ES8004', 'ES8004')),
     #     max_length=20, null=True, blank=True)
-    is_combined = models.BooleanField(default=False)
-    province = models.CharField(max_length=20, null=True, blank=True)
+    # is_combined = models.BooleanField(default=False)
+    # province = models.CharField(max_length=20, null=True, blank=True)
     # material_code = models.CharField(max_length=50, null=True, blank=True)
-    has_np_in_vom = models.BooleanField(default=True)
-    vinbom_status = models.BooleanField(default=True)
+    # has_np_in_vom = models.BooleanField(default=True)
+    # vinbom_status = models.BooleanField(default=True)
 
     def __str__(self):
         return self.vin

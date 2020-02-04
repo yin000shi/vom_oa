@@ -136,9 +136,7 @@ class NporderEditView(LoginRequiredMixin, View):
                                                                  vin=request.POST['vin'],
                                                                  city=request.POST['city'],
                                                                  direction=request.POST['direction'],
-                                                                 model_code=request.POST['model_code'],
-                                                                 is_combined=request.POST['is_combined'],
-                                                                 material_code=request.POST['material_code'],
+                                                                 internal_order_no=request.POST['internal_order_no'],
                                                                  is_changed=request.POST['is_changed']
                                                                  )
             res['result'] = True
