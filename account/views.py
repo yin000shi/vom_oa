@@ -34,7 +34,7 @@ class LoginView(View):
                     login(request, user)
                     return HttpResponseRedirect(reverse('dashboard'))
                 else:
-                    ret['msg'] = '用户未激活！'
+                    ret['msg'] = '用户未激活！请联系管理员激活。'
             else:
                 ret['msg'] = '用户名和密码错误！'
         else:

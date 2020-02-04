@@ -174,3 +174,8 @@ CELERY_BEAT_SCHEDULE = {
         'schedule': crontab(minute=45, hour='*/1'),
     }
 }
+
+# authenticate函数忽略is_active的值
+AUTHENTICATION_BACKENDS = ['django.contrib.auth.backends.AllowAllUsersModelBackend']
+
+
